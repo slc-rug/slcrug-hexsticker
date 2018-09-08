@@ -7,24 +7,61 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## GitHub Documents
+## Get some population data for Utah
 
-This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
+```{r utah}
+library(tidyverse)
+library(tidycensus)
 
-## Including Code
+options(tigris_use_cache = TRUE)
 
-You can include R code in the document as follows:
+utah <- get_acs(state = "UT", 
+                geography = "tract", 
+                variables = "B01003_001",  
+                geometry = TRUE)
 
-```{r cars}
-summary(cars)
+head(utah)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+```{r}
+library(viridis)
+library(hexSticker)
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+ut <- utah %>%
+    ggplot(aes(fill = estimate, color = estimate)) + 
+    geom_sf() + 
+    coord_sf() + 
+    scale_fill_viridis() + 
+    scale_color_viridis() + 
+    theme_minimal() +
+    theme(legend.position="none") +
+    theme(axis.text.x=element_blank(),
+          axis.text.y=element_blank()) +
+    theme_transparent()
+
+ut
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r}
+
+sysfonts::font_add_google("Fredericka the Great", "Fredericka")
+
+sticker(ut, 
+        package = "slc rug", 
+        p_size = 10,
+        p_y = 1.45,
+        p_family = "Fredericka",
+        p_color = "#3F4788FF",
+        h_fill = "#FFFFFF",
+        h_color = "#453781FF",
+        h_size = 2.1,
+        s_x = 1, s_y = .75, 
+        s_width=1.2, s_height=1.2,
+        filename="slcrug_hex.png")
+
+
+```
+
