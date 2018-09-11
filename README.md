@@ -5,4 +5,4 @@ This little repo contains the code to make the hex sticker for the [SLC RUG](htt
 ![slc rug hex](R/slcrug_hex.png)
 
 Actual size:
-<img src="R/slcrug_hex.png" height="2in"/>
+<img src="R/slcrug_hex.png" height="192px"/>
