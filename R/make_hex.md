@@ -12,6 +12,7 @@ output: github_document
 library(tidyverse)
 library(tidycensus)
 
+
 options(tigris_use_cache = TRUE)
 
 utah <- get_acs(state = "UT", 
@@ -57,6 +58,7 @@ head(utah)
 
 
 
+
 ```r
 library(viridis)
 library(hexSticker)
@@ -64,7 +66,8 @@ library(hexSticker)
 ut <- utah %>%
     ggplot(aes(fill = estimate, color = estimate)) + 
     geom_sf() + 
-    coord_sf() + 
+    coord_sf(xlim = c(-107, -116),
+             ylim = c(36, 46)) + 
     scale_fill_viridis() + 
     scale_color_viridis() + 
     theme_minimal() +
@@ -78,23 +81,21 @@ ut
 
 ![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png)
 
-
-
-
 ```r
-sysfonts::font_add_google("Fredericka the Great", "Fredericka")
-
-sticker(ut, 
+sticker(ut,
         package = "slc rug", 
         p_size = 10,
         p_y = 1.45,
-        p_family = "Fredericka",
+        p_family = "abril",
         p_color = "#3F4788FF",
         h_fill = "#FFFFFF",
         h_color = "#453781FF",
-        h_size = 2.1,
-        s_x = 1, s_y = .75, 
-        s_width=1.2, s_height=1.2,
+        h_size = 2,
+        s_x = 1, s_y = 1, 
+        s_width = 1.6, s_height = 1.6,
+        url = "slc-rug.github.io",
+        u_color	= "#453781FF",
         filename="slcrug_hex.png")
 ```
+
 
