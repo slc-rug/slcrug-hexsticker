@@ -12,14 +12,21 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r utah}
 library(tidyverse)
 library(tidycensus)
-
+library(sf)
 
 options(tigris_use_cache = TRUE)
 
-utah <- get_acs(state = "UT", 
+utah_raw <- get_acs(state = "UT", 
                 geography = "tract", 
                 variables = "B01003_001",  
                 geometry = TRUE)
+
+area <- utah_raw %>% 
+    select(geometry) %>% 
+    st_area() %>%
+    as.numeric()
+
+utah <- bind_cols(utah_raw, data_frame(area = area))
 
 head(utah)
 ```
@@ -31,7 +38,8 @@ library(viridis)
 library(hexSticker)
 
 ut <- utah %>%
-    ggplot(aes(fill = estimate, color = estimate)) + 
+    ggplot(aes(fill = log2((estimate + 25) / area), 
+               color = log2((estimate + 25) / area))) + 
     geom_sf() + 
     coord_sf(xlim = c(-107, -116),
              ylim = c(36, 46)) + 
