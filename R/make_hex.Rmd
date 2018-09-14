@@ -41,8 +41,6 @@ ut <- utah %>%
     ggplot(aes(fill = log2((estimate + 25) / area), 
                color = log2((estimate + 25) / area))) + 
     geom_sf() + 
-    # coord_sf(xlim = c(-107, -116),
-    #          ylim = c(36, 46)) + 
     scale_fill_viridis(begin=.3, end=.9) + 
     scale_color_viridis(begin=.3, end=.9) + 
     theme_minimal() +
@@ -54,61 +52,23 @@ ut <- utah %>%
 
 ut
 
-sysfonts::font_add_google("Abril Fatface", "abril")
+sysfonts::font_add_google("Baloo Tammudu", "baloo")
 
 sticker(ut,
-        package = "slc-rug", 
-        p_size = 38,
-        p_y = 1,
-        p_family = "baloo",
-        p_color = "#000000",
-        # p_color = "#453781FF",
-        h_fill = "#FFFFFF",
-        h_color = "#453781FF",
-        # h_color = "#000000",
-        h_size = 2,
-        s_x = 1, s_y = 1, 
-        s_width = 1.6, s_height = 1.6,
-        url = "github.com/slc-rug",
-        u_color	= "#453781FF",
-        u_size = 3,
-        filename="slcrug_hex.png")
-
-sticker(ut,
-        package = "slc-rug", 
-        p_size = 38,
+        package = "slc rug", 
+        p_size = 12.5,
         p_y = 1,
         p_family = "baloo",
         p_color = "#ffffff",
-        # p_color = "#453781FF",
         h_fill = "#453781FF",
         h_color = "#ffffff",
-        # h_color = "#000000",
         h_size = 2,
         s_x = 1, s_y = 1, 
         s_width = 1.6, s_height = 1.6,
         url = "github.com/slc-rug",
         u_color	= "#ffffff",
-        u_size = 3,
-        filename="slcrug_hex2.png")
-
-sticker(ut,
-        package = "slc-rug", 
-        p_size = 38,
-        p_y = 1,
-        p_family = "baloo",
-        # p_color = "#000000",
-        p_color = "#453781FF",
-        h_fill = "#FFFFFF",
-        h_color = "#453781FF",
-        # h_color = "#000000",
-        h_size = 2,
-        s_x = 1, s_y = 1, 
-        s_width = 1.6, s_height = 1.6,
-        url = "github.com/slc-rug",
-        u_color	= "#453781FF",
-        u_size = 3,
-        filename="slcrug_hex3.png")
+        u_size = 1.2,
+        filename="slcrug_hex.png")
 
 ```
 

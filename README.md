@@ -2,15 +2,6 @@
 
 This little repo contains the code to make the hex sticker for the [SLC RUG](https://www.meetup.com/Salt-Lake-City-R-Users-Group).
 
-![slc rug hex](R/slcrug_hex2.png)
-
-
-
-
-![slc rug hex](R/slcrug_hex3.png)
-
-
-
 
 ![slc rug hex](R/slcrug_hex.png)
 
