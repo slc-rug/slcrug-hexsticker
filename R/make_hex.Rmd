@@ -41,14 +41,15 @@ ut <- utah %>%
     ggplot(aes(fill = log2((estimate + 25) / area), 
                color = log2((estimate + 25) / area))) + 
     geom_sf() + 
-    coord_sf(xlim = c(-107, -116),
-             ylim = c(36, 46)) + 
-    scale_fill_viridis() + 
-    scale_color_viridis() + 
+    # coord_sf(xlim = c(-107, -116),
+    #          ylim = c(36, 46)) + 
+    scale_fill_viridis(begin=.3, end=.9) + 
+    scale_color_viridis(begin=.3, end=.9) + 
     theme_minimal() +
     theme(legend.position="none") +
     theme(axis.text.x=element_blank(),
-          axis.text.y=element_blank()) +
+          axis.text.y=element_blank(),
+          panel.grid.major = element_line(colour = "transparent")) +
     theme_transparent()
 
 ut
@@ -56,19 +57,58 @@ ut
 sysfonts::font_add_google("Abril Fatface", "abril")
 
 sticker(ut,
-        package = "slc rug", 
-        p_size = 10,
-        p_y = 1.45,
-        p_family = "abril",
-        p_color = "#3F4788FF",
+        package = "slc-rug", 
+        p_size = 38,
+        p_y = 1,
+        p_family = "baloo",
+        p_color = "#000000",
+        # p_color = "#453781FF",
         h_fill = "#FFFFFF",
         h_color = "#453781FF",
+        # h_color = "#000000",
         h_size = 2,
         s_x = 1, s_y = 1, 
         s_width = 1.6, s_height = 1.6,
-        url = "slc-rug.github.io",
+        url = "github.com/slc-rug",
         u_color	= "#453781FF",
+        u_size = 3,
         filename="slcrug_hex.png")
+
+sticker(ut,
+        package = "slc-rug", 
+        p_size = 38,
+        p_y = 1,
+        p_family = "baloo",
+        p_color = "#ffffff",
+        # p_color = "#453781FF",
+        h_fill = "#453781FF",
+        h_color = "#ffffff",
+        # h_color = "#000000",
+        h_size = 2,
+        s_x = 1, s_y = 1, 
+        s_width = 1.6, s_height = 1.6,
+        url = "github.com/slc-rug",
+        u_color	= "#ffffff",
+        u_size = 3,
+        filename="slcrug_hex2.png")
+
+sticker(ut,
+        package = "slc-rug", 
+        p_size = 38,
+        p_y = 1,
+        p_family = "baloo",
+        # p_color = "#000000",
+        p_color = "#453781FF",
+        h_fill = "#FFFFFF",
+        h_color = "#453781FF",
+        # h_color = "#000000",
+        h_size = 2,
+        s_x = 1, s_y = 1, 
+        s_width = 1.6, s_height = 1.6,
+        url = "github.com/slc-rug",
+        u_color	= "#453781FF",
+        u_size = 3,
+        filename="slcrug_hex3.png")
 
 ```
 
