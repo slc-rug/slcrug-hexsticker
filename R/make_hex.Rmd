@@ -52,11 +52,11 @@ ut <- utah %>%
 
 ut
 
-sysfonts::font_add_google("Baloo Tammudu", "baloo")
+sysfonts::font_add_google("Baloo Tamma 2", "baloo", regular.wt = 800)
 
 sticker(ut,
         package = "slc rug", 
-        p_size = 12.5,
+        p_size = 13,
         p_y = 1,
         p_family = "baloo",
         p_color = "#ffffff",
@@ -68,7 +68,8 @@ sticker(ut,
         url = "github.com/slc-rug",
         u_color	= "#ffffff",
         u_size = 1.2,
-        filename="slcrug_hex.png")
+        filename="slcrug_hex.png",
+        dpi = 600)
 
 ```
 
